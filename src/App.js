@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import PageLoader from './components/PageLoader'
+import Navbar from './components/Navbar'
+import Home from './components/pages/Home'
+import About from './components/pages/About'
+import Skills from './components/pages/Skills'
+import Projects from './components/pages/Projects'
+import Contact from './components/pages/Contact'
+import Footer from './components/Footer'
+import './index.css'
 
-function App() {
+const App = () => {
+  const [loading, setLoading] = useState(true)
+  const [isDataLoaded, setIsDataLoaded] = useState(false)
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  const fetchData = () => {
+    // just to smilate the loading
+    setTimeout(() => {
+      setIsDataLoaded(true)
+      setLoading(false)
+    }, 5000)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loading ? <PageLoader /> : null}
+      {isDataLoaded ? (
+        <div>
+          <Navbar />
+          <Home />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+          <Footer />
+        </div>
+      ) : null}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

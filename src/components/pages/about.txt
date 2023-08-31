@@ -1,0 +1,33 @@
+import React from "react";
+import Image from "../assets/about.png";
+
+const About = () => {
+  return (
+    <div id="about" className="flex flex-col md:flex-row w-full h-screen bg-gradient-to-r from-blue-900 to-black">
+
+      <div className="w-full md:w-1/2 p-2 md:p-2 flex items-center justify-center ">
+          <img
+            src={Image}
+            alt="About Us"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      <div className="w-full md:w-1/2 p-4 md:p-8 bg-black flex items-center justify-center">
+        <div className="text-center md:text-left">
+          <h2 className="text-3xl md:text-5xl font-bold text-yellow-300 mb-4">
+            About <span className="text-red-500">Me</span>
+          </h2>
+          <p className="text-lg md:text-xl text-white mb-8">
+          <p className="text-2xl font-serif my-10 animate-fade-in"></p>  
+          I am a software engineering student (4th Year) at Sixth of October University for Modern Science and Arts (MSA), under the supervision of Greenwich University's School of Computing Science, I am passionate about (Web development using ReactJs/NextJs) and (Mobile app development using Flutter/React native).
+            <br/>
+            <br/>
+            I am also familiar with graphic design principles for creating visually appealing and user-friendly interfaces, and proficient in Figma and Adobe Photoshop for UI and UX design.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default About;
